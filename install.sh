@@ -1,6 +1,7 @@
 #!/bin/
 db_passwd=$1
-version=`pwd`;echo ${version##*/}
+path=`pwd`;
+version=${path##*/}
 local_ip=`ss|grep ssh|awk 'NR==1{print $4}'|cut -d \: -f1`
 for i in `ls -d */|grep _`;do echo $i;mv $i `echo $i|cut -d _ -f1|tr A-Z a-z`;done 
 find . -name "*.gz"|xargs -i tar -xf {}
