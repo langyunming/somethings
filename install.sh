@@ -15,13 +15,13 @@ for i in `ls -d */|grep _`;do echo $i;mv $i `echo $i|cut -d _ -f1|tr A-Z a-z`;do
 #gen license.txt
 wget  ftp://ftper:ftper@172.20.10.198/license.py -O license.py
 mac=`cat /sys/class/net/$(ip route show default | awk '/default/ {print $5}')/address|tr a-z A-Z`
-python license.py mac CL
+python license.py $mac CL
 mv license.txt cl/bin/
-python license.py mac ISU
+python license.py $mac ISU
 mv license.txt isu/bin/
-python license.py mac MG
+python license.py $mac MG
 mv license.txt mg/bin/
-python license.py mac MSU
+python license.py $mac MSU
 mv license.txt msu/bin/
-python license.py mac RC
+python license.py $mac RC
 mv license.txt rc/bin/
